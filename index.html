@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Durgesh Yadav - Java Backend Engineer specializing in payment gateway integrations (Spring Boot, Microservices, Kafka, 3DS, UPI).">
+<meta property="og:title" content="Durgesh Yadav | Java Backend Engineer">
+<meta property="og:description" content="5 years in Java & Spring Boot. 20+ payment gateway integrations. Immediate joiner.">
+<title>Durgesh Yadav</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#F4F6FA; --surface:#FFFFFF; --ink:#131A2E; --muted:#56607A; --line:#DCE1EC;
+  --accent:#2743D6; --accent-soft:#E6EAFB; --paid:#15803D; --paid-soft:#E3F4E8; --warn:#B45309;
+  --code-bg:#0F1426; --code-ink:#D7DDF0; --code-key:#8FA2FF; --code-str:#7FD3A0; --code-num:#F2C66D;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0C1120; --surface:#141B2F; --ink:#E7EBF5; --muted:#9AA4BE; --line:#26304A;
+    --accent:#8497FF; --accent-soft:#1D2750; --paid:#4ADE80; --paid-soft:#113222; --warn:#F5A04A;
+    --code-bg:#070B16;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0C1120; --surface:#141B2F; --ink:#E7EBF5; --muted:#9AA4BE; --line:#26304A;
+  --accent:#8497FF; --accent-soft:#1D2750; --paid:#4ADE80; --paid-soft:#113222; --warn:#F5A04A;
+  --code-bg:#070B16;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:24px;padding-block:0 64px}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* nav */
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px;flex-wrap:wrap}
+.mark{font:800 20px/1 var(--display);color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.mark span{color:var(--accent)}
+.navlinks{display:flex;gap:20px;flex-wrap:wrap}
+.navlinks a{color:var(--muted);text-decoration:none;font-weight:600;font-size:15px}
+.navlinks a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-block:40px 56px}
+.status{display:inline-flex;align-items:center;gap:8px;background:var(--paid-soft);color:var(--paid);font:500 13px/1 var(--mono);padding:8px 12px;border-radius:999px}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--paid)}
+.hero h1{font-size:clamp(44px,7vw,76px);line-height:.98;letter-spacing:-.03em;font-weight:800;margin-top:20px}
+.hero .role{font:600 clamp(19px,2.4vw,23px)/1.35 var(--display);color:var(--accent);margin-top:14px}
+.hero p.lead{color:var(--muted);max-width:56ch;margin:18px 0 0;font-size:18px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:10px;font:700 15px/1 var(--body);text-decoration:none;border:1.5px solid var(--accent);cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--accent)}
+
+/* webhook card */
+.webhook{background:var(--code-bg);color:var(--code-ink);border-radius:14px;padding:20px 22px;font:400 13.5px/1.75 var(--mono);box-shadow:0 20px 50px -24px rgba(19,26,46,.55);overflow-x:auto}
+.webhook .hdr{display:flex;justify-content:space-between;gap:12px;color:#7D87A6;font-size:12px;border-bottom:1px solid #222B45;padding-bottom:10px;margin-bottom:10px;white-space:nowrap}
+.webhook .hdr b{color:var(--code-str);font-weight:500}
+.webhook pre{margin:0;font:inherit;white-space:pre}
+.k{color:var(--code-key)} .s{color:var(--code-str)} .n{color:var(--code-num)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:26px 24px}
+.stat+.stat{border-left:1px solid var(--line)}
+.stat .v{font:800 clamp(34px,4.6vw,48px)/1 var(--display);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat .v small{font-size:.5em;color:var(--muted);font-weight:700}
+.stat .l{color:var(--muted);margin-top:8px;font-size:15.5px;max-width:28ch}
+
+section{padding-top:72px}
+.shead{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.shead h2{font-size:clamp(28px,3.6vw,38px);letter-spacing:-.02em;font-weight:800}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.about p{margin:0 0 14px;max-width:62ch}
+.facts{display:grid;gap:0;border:1px solid var(--line);border-radius:12px;background:var(--surface);align-self:start}
+.fact{display:flex;justify-content:space-between;gap:16px;padding:14px 18px;font-size:15.5px}
+.fact+.fact{border-top:1px solid var(--line)}
+.fact span:first-child{color:var(--muted)}
+.fact span:last-child{font-weight:600;text-align:right}
+
+/* experience timeline */
+.timeline{display:grid;gap:0}
+.job{display:grid;grid-template-columns:190px 1fr;gap:28px;padding-block:28px;border-top:1px solid var(--line)}
+.job:last-child{border-bottom:1px solid var(--line)}
+.job .when{font:500 13.5px/1.5 var(--mono);color:var(--muted)}
+.job .when .now{display:inline-block;margin-top:6px;color:var(--paid);background:var(--paid-soft);padding:2px 8px;border-radius:6px}
+.job h3{font-size:22px;letter-spacing:-.01em}
+.job .co{color:var(--accent);font-weight:700;margin-top:2px}
+.job ul{margin:14px 0 0;padding-left:18px;display:grid;gap:8px}
+.job li{max-width:70ch}
+.job li::marker{color:var(--accent)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tag{font:500 12.5px/1 var(--mono);padding:6px 9px;border-radius:6px;background:var(--accent-soft);color:var(--accent)}
+
+/* rails */
+.rails{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.rail{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.rail .rh{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.rail h3{font-size:18px}
+.rail .cnt{font:500 12.5px/1 var(--mono);color:var(--muted)}
+.rail .what{color:var(--muted);font-size:14.5px;margin:6px 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:14px;font-weight:600;padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:var(--bg)}
+
+/* flow */
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:26px;font:500 13px/1 var(--mono)}
+.flow .st{padding:8px 11px;border-radius:8px;background:var(--surface);border:1px solid var(--line)}
+.flow .st.ok{background:var(--paid-soft);color:var(--paid);border-color:transparent}
+.flow .ar{color:var(--muted)}
+.flowcap{color:var(--muted);font-size:14.5px;margin-top:10px}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line)}
+.sk{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.sk:nth-child(odd){padding-right:28px}
+.sk:nth-child(even){padding-left:28px;border-left:1px solid var(--line)}
+.sk b{font-family:var(--display);font-size:16px}
+.sk span{color:var(--muted);font-size:15.5px}
+
+/* education */
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ed{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.ed .yr{font:500 13px/1 var(--mono);color:var(--muted)}
+.ed h3{font-size:18px;margin-top:10px}
+.ed p{margin:6px 0 0;color:var(--muted);font-size:15px}
+
+/* contact */
+.contact{margin-top:72px;background:var(--ink);color:var(--bg);border-radius:18px;padding:40px;display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center}
+.contact h2{font-size:clamp(28px,4vw,42px);letter-spacing:-.02em;line-height:1.05}
+.contact p{opacity:.75;margin:12px 0 0}
+.lines{display:grid;gap:10px}
+.line{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid rgba(127,140,180,.35);border-radius:10px}
+.line .lv{font:500 14.5px/1.3 var(--mono);word-break:break-all}
+.line .ll{font-size:12px;opacity:.6;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px}
+.line a{color:inherit}
+.copy{flex:none;background:transparent;color:inherit;border:1px solid rgba(127,140,180,.5);border-radius:8px;padding:7px 10px;font:600 13px/1 var(--body);cursor:pointer}
+.copy:hover{background:rgba(127,140,180,.15)}
+footer{color:var(--muted);font-size:14px;margin-top:28px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media (max-width:860px){
+  .hero,.about,.contact{grid-template-columns:1fr}
+  .hero{gap:32px;padding-block:24px 40px}
+  .job{grid-template-columns:1fr;gap:10px}
+  .skills{grid-template-columns:1fr}
+  .sk:nth-child(odd),.sk:nth-child(even){padding-inline:0;border-left:0}
+}
+@media (max-width:600px){
+  .wrap{padding-inline:16px}
+  .stats{grid-template-columns:1fr}
+  .stat+.stat{border-left:0;border-top:1px solid var(--line)}
+  .stat{padding:20px 4px}
+  .sk{grid-template-columns:1fr;gap:4px}
+  .edu{grid-template-columns:1fr}
+  .contact{padding:26px 20px}
+  .navlinks{gap:14px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .btn,.copy,.navlinks a{transition:background .15s,color .15s}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <a class="mark" href="#top">Durgesh<span>.</span></a>
+    <div class="navlinks">
+      <a href="#experience">Experience</a>
+      <a href="#integrations">Integrations</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <span class="status">open_to_work · immediate joiner</span>
+      <h1>Durgesh Yadav</h1>
+      <div class="role">Backend Engineer · Java, Spring Boot &amp; Payments</div>
+      <p class="lead">I build the part of checkout nobody sees: the gateway that talks to card networks, UPI, wallets and crypto rails, signs every request, and makes sure the webhook that says "paid" is telling the truth.</p>
+      <div class="cta">
+        <a class="btn primary" href="#contact">Get in touch</a>
+        <a class="btn ghost" href="Durgesh_Yadav_Java_Backend_Resume.pdf" target="_blank" rel="noopener">Download resume</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/durgesh-yadav-ba723a16b/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/ProgrammerDurgesh" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div class="webhook" aria-label="Profile summary written as a webhook payload">
+      <div class="hdr"><span>POST /webhook/candidate</span><b>200 OK</b></div>
+<pre>{
+  <span class="k">"name"</span>: <span class="s">"Durgesh Yadav"</span>,
+  <span class="k">"experience_years"</span>: <span class="n">5</span>,
+  <span class="k">"stack"</span>: [<span class="s">"Java"</span>, <span class="s">"Spring Boot"</span>, <span class="s">"Kafka"</span>],
+  <span class="k">"psp_integrations"</span>: <span class="n">20</span>,
+  <span class="k">"rails"</span>: [<span class="s">"3DS"</span>, <span class="s">"UPI"</span>, <span class="s">"GPay"</span>, <span class="s">"Crypto"</span>],
+  <span class="k">"integration_time"</span>: <span class="s">"1 day"</span>,
+  <span class="k">"location"</span>: <span class="s">"Jaipur, IN"</span>,
+  <span class="k">"status"</span>: <span class="s">"open_to_work"</span>
+}</pre>
+    </div>
+  </header>
+
+  <div class="stats" role="list">
+    <div class="stat" role="listitem"><div class="v">20+</div><div class="l">payment providers integrated into one gateway</div></div>
+    <div class="stat" role="listitem"><div class="v">1 wk <small>→</small> 1 day</div><div class="l">time to integrate a new payment provider</div></div>
+    <div class="stat" role="listitem"><div class="v">−15%</div><div class="l">failed transactions after reworking webhook and reconciliation flows</div></div>
+  </div>
+
+  <section id="about">
+    <div class="shead"><span class="eyebrow">About</span><h2>Five years of backend work, the last two and a half in payments</h2></div>
+    <div class="about">
+      <div>
+        <p>I'm a Java backend engineer at Paysecure, where I integrate payment service providers into our gateway. Each one starts with a stack of API docs and ends with live transactions: cards with 3DS, Google Pay, recurring charges, UPI Intent and QR, bank transfers, payouts and crypto.</p>
+        <p>Before payments I built a Jira-style project management platform with real-time notifications on Kafka and WebSocket, and ERP modules on iDempiere. I like problems where the details matter, like a signature that fails only on recurring transactions, or a webhook amount that is off by a factor of 100.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><span>Current role</span><span>Software Engineer (Payments)</span></div>
+        <div class="fact"><span>Experience</span><span>~5 years</span></div>
+        <div class="fact"><span>Location</span><span>Jaipur, open to relocation</span></div>
+        <div class="fact"><span>Notice period</span><span>Immediate joiner</span></div>
+        <div class="fact"><span>Education</span><span>B.Tech CSE, GJUS&amp;T Hisar</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="shead"><span class="eyebrow">Experience</span><h2>Where I've worked</h2></div>
+    <div class="timeline">
+      <article class="job">
+        <div class="when">Mar 2024 – Present<br>Jaipur<br><span class="now">current</span></div>
+        <div>
+          <h3>Software Engineer (Payments)</h3>
+          <div class="co">Paysecure</div>
+          <ul>
+            <li>Owned end-to-end integration of 20+ payment providers (Adyen, PXP, Noon Payments, PayPal, Cashfree, Bitso and more), from API analysis and flow design to sandbox testing, staging rollout and post-live fixes.</li>
+            <li>Built a recurring payment (MIT) flow with mandate enrolment, card token vaulting and merchant-initiated charges, and fixed a request-signing defect that caused HMAC failures on recurring transactions.</li>
+            <li>Designed webhook processing, status inquiry and reconciliation flows, reducing failed transactions by 15%.</li>
+            <li>Implemented PSP authentication schemes: HMAC-SHA256 signatures, RS256 JWT and OAuth token flows.</li>
+            <li>Built an AI-assisted integration pipeline (doc extraction, config generation, automated validation) that cut new PSP integration time from about a week to one day.</li>
+            <li>Debug production payment issues through logs and root-cause analysis, and review teammates' integration code.</li>
+          </ul>
+          <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Microservices</span><span class="tag">MySQL</span><span class="tag">3DS</span><span class="tag">Webhooks</span></div>
+        </div>
+      </article>
+      <article class="job">
+        <div class="when">Oct 2022 – Mar 2024<br>Gandhinagar</div>
+        <div>
+          <h3>Associate Java Developer</h3>
+          <div class="co">DRC Systems</div>
+          <ul>
+            <li>Developed the backend of TruFlux, a Jira-style agile project management platform for issue tracking, custom workflows and reporting.</li>
+            <li>Built a real-time notification system using Kafka and WebSocket.</li>
+            <li>Designed REST APIs secured with Spring Security and JWT; automated Excel reporting with Apache POI.</li>
+          </ul>
+          <div class="tags"><span class="tag">Spring Boot</span><span class="tag">Kafka</span><span class="tag">WebSocket</span><span class="tag">JPA</span><span class="tag">React</span></div>
+        </div>
+      </article>
+      <article class="job">
+        <div class="when">Nov 2021 – Oct 2022<br>Ahmedabad</div>
+        <div>
+          <h3>Software Engineer (Java)</h3>
+          <div class="co">Logilite Technologies LLP</div>
+          <ul>
+            <li>Developed and customized business modules on the iDempiere ERP platform, from requirement analysis through development and testing.</li>
+          </ul>
+          <div class="tags"><span class="tag">Java</span><span class="tag">iDempiere</span><span class="tag">PostgreSQL</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="integrations">
+    <div class="shead"><span class="eyebrow">Payment integrations</span><h2>Rails I've connected</h2></div>
+    <div class="rails">
+      <div class="rail">
+        <div class="rh"><h3>Cards &amp; 3DS</h3><span class="cnt">6 providers</span></div>
+        <p class="what">Card payments with 3-D Secure challenge, redirect and recurring charges.</p>
+        <div class="chips"><span class="chip">Adyen</span><span class="chip">PXP Financial</span><span class="chip">YoyaPay</span><span class="chip">Wema (MPGS)</span><span class="chip">Paystrax</span><span class="chip">NomuPay</span></div>
+      </div>
+      <div class="rail">
+        <div class="rh"><h3>Wallets</h3><span class="cnt">4 providers</span></div>
+        <p class="what">Google Pay tokens, PayPal checkout and Venmo.</p>
+        <div class="chips"><span class="chip">Google Pay (Noon)</span><span class="chip">PayPal Checkout v2</span><span class="chip">Braintree</span><span class="chip">Venmo</span></div>
+      </div>
+      <div class="rail">
+        <div class="rh"><h3>Local payment methods</h3><span class="cnt">8 providers</span></div>
+        <p class="what">UPI Intent &amp; QR in India, plus bank and voucher methods in Canada, Portugal and LATAM.</p>
+        <div class="chips"><span class="chip">UPI Intent &amp; QR</span><span class="chip">Interac</span><span class="chip">Multibanco</span><span class="chip">SafetyPay</span><span class="chip">Tonder</span><span class="chip">Cashfree</span><span class="chip">Easebuzz</span><span class="chip">VertexLayer</span></div>
+      </div>
+      <div class="rail">
+        <div class="rh"><h3>Payouts &amp; crypto</h3><span class="cnt">6 providers</span></div>
+        <p class="what">Bank payouts (IMPS, Peru CCE) and on-chain token payments.</p>
+        <div class="chips"><span class="chip">LigoPay</span><span class="chip">VertexLayer IMPS</span><span class="chip">Approvely</span><span class="chip">Bitpace</span><span class="chip">Bitso</span><span class="chip">MeshConnect</span></div>
+      </div>
+    </div>
+    <div class="flow" aria-label="Transaction lifecycle">
+      <span class="st">created</span><span class="ar">→</span>
+      <span class="st">3ds_challenge</span><span class="ar">→</span>
+      <span class="st">payment_in_process</span><span class="ar">→</span>
+      <span class="st">webhook_verified</span><span class="ar">→</span>
+      <span class="st ok">paid</span>
+    </div>
+    <p class="flowcap">Every integration covers this lifecycle: payment request, redirect or 3DS, status inquiry, signed webhook and reconciliation.</p>
+  </section>
+
+  <section id="skills">
+    <div class="shead"><span class="eyebrow">Skills</span><h2>Tools I use every day</h2></div>
+    <div class="skills">
+      <div class="sk"><b>Languages</b><span>Java (Core, Collections, Multithreading, Streams), SQL, JavaScript</span></div>
+      <div class="sk"><b>Frameworks</b><span>Spring Boot, Spring MVC, Spring Security, Spring Data JPA, Hibernate</span></div>
+      <div class="sk"><b>Payments</b><span>3DS, tokenization, recurring/MIT, UPI, payouts, webhooks, reconciliation, PCI-DSS</span></div>
+      <div class="sk"><b>Messaging</b><span>Apache Kafka, WebSocket, Redis</span></div>
+      <div class="sk"><b>Databases</b><span>MySQL, PostgreSQL, MongoDB, JDBC Template</span></div>
+      <div class="sk"><b>Security</b><span>JWT, HMAC-SHA256, RS256, OAuth</span></div>
+      <div class="sk"><b>Tools &amp; Cloud</b><span>Docker, AWS, CI/CD, Git, Maven, Jira</span></div>
+      <div class="sk"><b>Testing</b><span>Postman, sandbox and end-to-end payment testing</span></div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="shead"><span class="eyebrow">Education</span><h2>Education</h2></div>
+    <div class="edu">
+      <div class="ed"><span class="yr">2017 – 2020</span><h3>B.Tech, Computer Science &amp; Engineering</h3><p>Guru Jambheshwar University of Science &amp; Technology, Hisar (lateral entry)</p></div>
+      <div class="ed"><span class="yr">2014 – 2017</span><h3>Diploma, Electronics &amp; Communication</h3><p>Government Polytechnic, Manesar, Gurugram (HSBTE)</p></div>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <div>
+      <h2>Hiring a Java backend engineer?</h2>
+      <p>I'm available to join immediately. Email or call me, or <a href="Durgesh_Yadav_Java_Backend_Resume.pdf" target="_blank" rel="noopener" style="color:inherit">download my resume</a>.</p>
+    </div>
+    <div class="lines">
+      <div class="line"><div><div class="ll">Email</div><div class="lv" id="v-email"><a href="mailto:durgeshyadavgpm16@gmail.com">durgeshyadavgpm16@gmail.com</a></div></div><button class="copy" id="c-email" data-target="v-email">Copy</button></div>
+      <div class="line"><div><div class="ll">Phone</div><div class="lv" id="v-phone"><a href="tel:+918800543905">+91 8800543905</a></div></div><button class="copy" id="c-phone" data-target="v-phone">Copy</button></div>
+      <div class="line"><div><div class="ll">LinkedIn</div><div class="lv"><a href="https://www.linkedin.com/in/durgesh-yadav-ba723a16b/" target="_blank" rel="noopener">durgesh-yadav-ba723a16b</a></div></div></div>
+      <div class="line"><div><div class="ll">GitHub</div><div class="lv"><a href="https://github.com/ProgrammerDurgesh" target="_blank" rel="noopener">ProgrammerDurgesh</a></div></div></div>
+    </div>
+  </div>
+
+  <footer><span>Durgesh Yadav · Backend Engineer</span><span>Jaipur, India</span></footer>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click', function(){
+    var el = document.getElementById(b.dataset.target);
+    var text = el.textContent.trim();
+    function done(){ b.textContent = 'Copied'; setTimeout(function(){ b.textContent = 'Copy'; }, 1600); }
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      b.textContent = 'Selected';
+      setTimeout(function(){ b.textContent = 'Copy'; }, 1600);
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch (e) { fallback(); }
+  });
+});
+</script>
+</body>
+</html>
